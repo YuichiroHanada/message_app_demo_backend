@@ -11,4 +11,8 @@ public class RoomResp implements Serializable {
 
     private String roomName;
 
+    private Integer myId;
+
+    private Integer yourId;
+
 }

@@ -80,6 +80,8 @@ public class RoomManager {
 
                     String name = userDAO.getNameById(j);
                     roomResp.setRoomName(name);
+                    roomResp.setMyId(userId);
+                    roomResp.setYourId(j);
                 }
             }
             roomRespList.add(roomResp);
