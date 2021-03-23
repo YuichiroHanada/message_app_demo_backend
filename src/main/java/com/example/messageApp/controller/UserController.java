@@ -17,20 +17,21 @@ public class UserController {
 
    @GetMapping("/hello")
    public String hello() {
+       System.out.println("hello");
        return "hello";
    }
 
    @PostMapping("/create")
-   public String create(@RequestBody CreateReq req) {
+   public Boolean create(@RequestBody CreateReq req) {
 
        System.out.println(req.getAccount());
        try {
            userManager.saveUser(req.getAccount(), req.getPassword(), req.getName());
-           return "OK";
+           return true;
 
        }
        catch (Exception e) {
-           return "failed";
+           return false;
        }
 
     }

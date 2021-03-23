@@ -22,14 +22,14 @@ public class RoomController {
     private static Logger logger = LoggerFactory.getLogger(RoomController.class);
 
     @PostMapping("/friend")
-    public String addFriend(@RequestParam String address, @AuthenticationPrincipal SimpleLoginUser user) {
+    public Boolean addFriend(@RequestParam String address, @AuthenticationPrincipal SimpleLoginUser user) {
 
         UserDO userDO = user.getUser();
 
         if (roomManager.addFriend(address, userDO)) {
-            return "友達登録が完了し、新しい部屋が出来ました!";
+            return true;
         }
-        return "新しい部屋が出来ませんでした。既に相手が作っている可能性があります。";
+        return false;
     }
 
     @GetMapping("/show")

@@ -35,16 +35,16 @@ public class MessageController {
     }
 
     @PostMapping("/{roomId}/send")
-    public String sendMessage(@PathVariable("roomId") Integer roomId, @RequestParam String message, @AuthenticationPrincipal SimpleLoginUser user) {
+    public Boolean sendMessage(@PathVariable("roomId") Integer roomId, @RequestParam String message, @AuthenticationPrincipal SimpleLoginUser user) {
 
         UserDO userDO = user.getUser();
 
         if (messageManager.sendMessage(roomId, userDO.getId(), message) != null) {
 
-            return "送信完了!";
+            return true;
         } else {
             logger.error("roomId or message is not exist");
-            return "送信失敗、、";
+            return false;
         }
     }
 }
