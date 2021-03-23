@@ -23,9 +23,5 @@ public class MessageDO {
     @Column
     private Integer sendId;
 
-    @Column
-    private Date date;
-
-
 
 }
