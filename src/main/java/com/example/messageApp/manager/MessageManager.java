@@ -56,7 +56,6 @@ public class MessageManager {
             messageDO.setRoomId(roomId);
             messageDO.setSendId(userId);
             messageDO.setMessage(message);
-            messageDO.setDate(date);
 
             messageDAO.save(messageDO);
 
